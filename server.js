@@ -23,7 +23,7 @@ function main() {
 // 사칙연산 계산기 함수
 function calculator() {
   console.clear();
-  console.log("사칙연산 계산기입니다.");
+  console.log("사칙연산 계산기 입니다.");
   console.log("1. [ + ] 2. [ - ] 3. [ * ] 4. [ / ]");
   console.log("1 ~ 4 중 선택해주세요!");
   const operator = readlineSync.question("==> ");
@@ -37,22 +37,28 @@ function calculator() {
     case "1":
       // return Number(number1) + Number(number2);
       // return +number1 + +number2; // +변수 = 문자 타입을 숫자로 변경해줌
-      answer = number1/1 + +number2/1; // 나누기 1을 해서 암묵적으로 타입을 문자열 -> 숫자 로 변경 (곱하기도 가능)
+      answer = number1 / 1 + +number2 / 1; // 나누기 1을 해서 암묵적으로 타입을 문자열 -> 숫자 로 변경 (곱하기도 가능)
+      console.log(`${number1} + ${number2} = ${answer}`);
       break;
     case "2":
       answer = number1 - number2;
+      console.log(`${number1} - ${number2} = ${answer}`);
       break;
     case "3":
       answer = number1 * number2;
+      console.log(`${number1} * ${number2} = ${answer}`);
       break;
     case "4":
       answer = number1 / number2;
+      console.log(`${number1} / ${number2} = ${answer}`);
       break;
     default:
-      console.log("연산자를 잘못 입력하셨습니다.\n다시입력해 주세요");
-      calculator();
+      console.log("연산자를 잘못 입력하셨습니다.");
+      setTimeout(function () {
+        calculator();
+      }, 1500);
+      break;
   }
-  return console.log(answer);
 }
 // 구구단 출력 함수
 function printMultiplicationTable() {
