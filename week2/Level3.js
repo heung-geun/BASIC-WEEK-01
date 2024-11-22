@@ -9,8 +9,9 @@ const objArray = [
 // myFind 를 구현하여 arr.find 와 동일한 값이 나오도록 하기.
 
 function myFind(arr, callback) {
-  for(let i = 0; i < arr.length; i++) {
-    if(callback(arr[i])) {
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      return arr[i];
     }
   }
 }
@@ -22,8 +23,10 @@ const result1 = objArray.find(function (obj) {
 const result2 = myFind(objArray, function (obj) {
   return obj.name === "banana";
 });
+console.log(result1);
+console.log(result2);
 console.log(result1 === result2); // true
-
+console.log("----------");
 // (2) findIndex 구현
 
 const objArray1 = [
@@ -34,19 +37,26 @@ const objArray1 = [
 
 // myFindIndex 를 구현하여 arr.findIndex 와 동일한 값이 나오도록 하기.
 function myFindIndex(arr, callback) {
-  // (3) myFindIndex 구현
+  // myFindIndex 구현
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      return i;
+    }
+  }
 }
 
 const result3 = objArray1.findIndex(function (obj) {
   return obj.name === "banana";
 });
 
-const result4 = myFind(objArray1, function (obj) {
+const result4 = myFindIndex(objArray1, function (obj) {
   return obj.name === "banana";
 });
+console.log(result3);
+console.log(result4);
 console.log(result3 === result4); // true
-
-// (4) filter 사용
+console.log("----------");
+// (3) filter 사용
 
 const objArray2 = [
   { name: "apple", price: 100 },
@@ -65,3 +75,7 @@ const objArray3 = [
 ];
 
 // map을 이용하여 price값만 모아둔 배열 만들기
+let a = objArray3.map(function (obj) {
+  return obj.price;
+});
+console.log(a);
